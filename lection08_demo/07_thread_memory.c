@@ -17,6 +17,8 @@ void* thread_task(void *message)
 
 int main (void)
 {
+    value = 42;
+
     pthread_t thing1, thing2;
     int i1, i2;
     const char *message1 = "thing 1";
