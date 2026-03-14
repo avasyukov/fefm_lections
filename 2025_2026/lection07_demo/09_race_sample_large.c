@@ -1,0 +1,34 @@
+#include <pthread.h>
+#include <stdio.h>
+#include <unistd.h>
+
+#define THREADS_NUM 10
+
+long counter;
+
+void* increase_counter(void *args) {
+    for (int i = 0; i < 10000000; i++ ) {
+        counter++;
+    }
+    sleep(1);
+    return NULL;
+}
+
+int main() {
+    counter = 0;
+
+    pthread_t p[THREADS_NUM];
+
+    for (int i = 0; i < THREADS_NUM; ++i) {
+        pthread_create(&p[i], NULL, increase_counter, NULL);
+//        pthread_join(p[i], NULL);
+    }
+
+    for (int i = 0; i < THREADS_NUM; ++i) {
+        pthread_join(p[i], NULL);
+    }
+
+    printf("Value: %ld\n", counter);
+
+    return 0;
+}
