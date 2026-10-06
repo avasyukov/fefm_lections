@@ -1,0 +1,22 @@
+src: https://gmplib.org/
+src: https://gmplib.org/gmp-zen5
+
+---
+
+Back in February of 2025, the main GMP testing computer, a Ryzen 9950X based system, died. The CPU's pin side has a discoloured region of about 10 mm in diameter. The CPU was replaced within the warranty period.
+
+Unfortunately, now in late August, the replacement CPU died in the exact same way as the old CPU. (The new CPU had a new motherboard and a new PSU for good measure.)
+
+Before this problem is fully understood, we must caution people against using GMP heavily on any Zen 5 processor.
+
+We suspect that GMP's extremely tight loops around MULX make the Zen 5 cores use much more power than specified, making cooling solutions inadequate. 
+
+---
+
+We have fried two Ryzen 9950X CPUs in a few months by running GMP tests and the GMP-based factoring program GMP-ECM. This is not expected, of course. In this page, we provide as much information as possible to help analysing the problem.
+
+What causes these CPUs to die while running GMP is unknown to us.
+
+(...)
+
+Programs: (...) Command for running things over and over: (...)
